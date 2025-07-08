@@ -2,6 +2,8 @@ package idv.nj.dto;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Response<T> {
     private Boolean success;
@@ -13,6 +15,14 @@ public class Response<T> {
         Response<T> response = new Response<>();
         response.setSuccess(true);
         response.setContent(content);
+        return response;
+    }
+
+    public static <T extends List<?>> Response<T> ok(T content, Long total) {
+        Response<T> response = new Response<>();
+        response.setSuccess(true);
+        response.setContent(content);
+        response.setTotal(total);
         return response;
     }
 
