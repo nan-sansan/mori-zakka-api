@@ -11,6 +11,12 @@ public class Response<T> {
     private T content;
     private Long total;
 
+    public static <T> Response<T> ok() {
+        Response<T> response = new Response<>();
+        response.setSuccess(true);
+        return response;
+    }
+
     public static <T> Response<T> ok(T content) {
         Response<T> response = new Response<>();
         response.setSuccess(true);

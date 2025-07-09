@@ -24,3 +24,16 @@ spring:
 
   jackson:
     default-property-inclusion: non_null
+
+security:
+  cors:
+    allowed-origins:                            # 允許的來源
+      - "http://localhost:3000"
+    allowed-methods:                            # 允許的HTTP方法
+      - "*"
+    allowed-headers:                            # 允許的請求標頭
+      - "*"
+    exposed-headers:                            # 允許瀏覽器訪問的響應標頭
+      - "Authorization"
+    allow-credentials: true                     # 是否允許攜帶認證信息
+    max-age: 3600
