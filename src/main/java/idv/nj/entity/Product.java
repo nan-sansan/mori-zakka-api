@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,24 +19,23 @@ public class Product {
     @Column(name = "name", length = 255, nullable = false)
     private String name;
 
-    @Lob
-    @Column(name = "description", length = 255)
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "price", length = 20, nullable = false)
-    private String price;
+    @Column(name = "price", nullable = false)
+    private Integer price;
 
     @Column(name = "create_time")
     private LocalDateTime createTime;
 
-    @Column(name = "quantity",nullable = false)
+    @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private List<ProductImage> images = new ArrayList<>();
 }

@@ -6,8 +6,8 @@ import lombok.Getter;
 
 @Getter
 public enum ImageMimeType {
-    IMAGE_JPEG("image/jpeg"),
-    IMAGE_PNG("image/png");
+    JPEG("image/jpeg"),
+    PNG("image/png");
 
     private final String value;
 

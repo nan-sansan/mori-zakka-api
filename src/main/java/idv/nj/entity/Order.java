@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "member_cart")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,8 +17,7 @@ public class Order {
     @Column(name = "member_id", nullable = false)
     private Long memberId;
 
-    @Lob
-    @Column(name = "snap_shot", nullable = false)
+    @Column(name = "snap_shot",columnDefinition = "TEXT", nullable = false)
     private String snapShot;
 
     @Column(name = "status", nullable = false)
