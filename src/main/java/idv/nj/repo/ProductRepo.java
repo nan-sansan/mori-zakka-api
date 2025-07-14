@@ -16,6 +16,7 @@ public interface ProductRepo extends JpaRepository<Product, Long> {
                 p.category.id AS category,
                 p.price AS price,
                 p.quantity AS quantity,
+                p.description AS description,
                 GROUP_CONCAT(CONCAT(i.sortOrder,':',i.imageId)) AS rawImages
             FROM Product p
             LEFT JOIN p.images i

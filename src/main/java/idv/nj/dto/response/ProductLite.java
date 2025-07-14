@@ -18,6 +18,8 @@ public interface ProductLite {
 
     Integer getQuantity();
 
+    String getDescription();
+
     @Nullable
     @JsonIgnore
     String getRawImages();
